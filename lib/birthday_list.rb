@@ -10,4 +10,10 @@ class BirthdayList
   def store(person)
     @array.push(person)
   end
+
+  def show_all
+    @array.each do |person|
+      puts "#{person.name}: #{person.day}"
+    end
+  end
 end
