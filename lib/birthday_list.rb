@@ -12,8 +12,19 @@ class BirthdayList
   end
 
   def show_all
+    @array.each { |person| puts "#{person.name}: #{person.day}" }
+  end
+
+  def check_today
+    current_date = Date.today.to_s[5..-1]
+    current_year = Date.today.to_s[0..3].to_i
+
     @array.each do |person|
-      puts "#{person.name}: #{person.day}"
+      birth_year = person.day[0..3].to_i
+      age = current_year - birth_year
+      if person.day[5..-1] == current_date
+        puts "It's #{person.name}'s birthday today! They are #{age} years old!"
+      end
     end
   end
 end
