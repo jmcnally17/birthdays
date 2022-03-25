@@ -34,4 +34,8 @@ describe BirthdayList do
     list.store(person3)
     expect{list.check_today}.to output("It's Bob's birthday today! They are #{age} years old!\n").to_stdout
   end
+
+  it 'says there are no birthdays today if nobody has a birthday today' do
+    expect{list.check_today}.to output("Nobody has a birthday today\n").to_stdout
+  end
 end
